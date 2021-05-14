@@ -3,10 +3,7 @@ import PropTypes from 'prop-types'
 
 
 const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
-  const [text, setText] = useState(' ');
-
-
-
+  const [text, setText] = useState('');
 
   const onSubmit = (e) => {
       e.preventDefault();
@@ -14,7 +11,6 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
         setAlert('Please enter something', 'light')
       } else {
         searchUsers(text);
-        this.setState({ text: '' });
         setText(' ');
 
       }
@@ -39,7 +35,7 @@ const Search = ({ searchUsers, showClear, clearUsers, setAlert }) => {
             className="btn btn-dark btn-block"
           />
         </form>
-        {this.props.showClear && <button className="btn btn-light btn-block" onClick={this.props.clearUsers} >
+        {showClear && <button className="btn btn-light btn-block" onClick={clearUsers} >
           Clear
         </button>}
         
